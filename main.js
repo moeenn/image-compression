@@ -1,10 +1,10 @@
 import optimizeImage from "./lib/optimize.js";
 
-(() => main())()
+document.addEventListener("DOMContentLoaded", main)
 function main() {
   const input = document.querySelector("#img-input");
   input.addEventListener("change", async (event) => {
-    const file = event.target.files[0];
+    const [file] = event.target.files;
     const encoding = await encodeBase64(file);
 
     const optimizedEncoding = await optimizeImage(encoding);
